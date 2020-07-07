@@ -6,8 +6,11 @@ class DateHelper {
     }
     
     static dataParaTexto(data) {
-        
-        return `${data.getDate()}/${data.getMonth()+1}/${data.getFullYear()}`;
+        let teste = `${data.getDate()}/${data.getMonth()+1}/${data.getFullYear()}`;
+        data.getDate() < 10 && data.getMonth() < 10 ? teste = `0${data.getDate()}/0${data.getMonth()+1}/${data.getFullYear()}` : null;
+        data.getDate() < 10 && data.getMonth() > 10 ? teste = `0${data.getDate()}/${data.getMonth()+1}/${data.getFullYear()}`: null;
+        data.getDate() > 10 && data.getMonth() < 10 ? teste = `${data.getDate()}/0${data.getMonth()+1}/${data.getFullYear()}`: null;
+        return teste;
     }
     
     static textoParaData(texto) {
